@@ -100,7 +100,7 @@ To fix it:
 		- Open the `generic_utils.py` file and change this code line:</br>`marshal.dumps(func.code).decode(‘raw_unicode_escape’)`</br>to this code line:</br>`marshal.dumps(func.code).replace(b’\’,b’/’).decode(‘raw_unicode_escape’)`
 
 6. Obtain the `libav` package.
-	- __Linux__: `sudo apt-get install libav-tools`
+	- __Linux__: `sudo apt-get install libav-tools. If you are using ubantu 18.xx this package will not available there.Use command sudo apt-get install ffmpeg`
 	- __Mac__: `brew install libav`
 	- __Windows__: Browse to the [Libav website](https://libav.org/download/)
 		- Scroll down to "Windows Nightly and Release Builds" and click on the appropriate link for your system (32-bit or 64-bit).
@@ -120,9 +120,16 @@ To fix it:
 	tar -xzvf dev-clean.tar.gz
 	wget http://www.openslr.org/resources/12/test-clean.tar.gz
 	tar -xzvf test-clean.tar.gz
+	
+	Run following command if Ubantu version is not 18.xx:
 	mv flac_to_wav.sh LibriSpeech
 	cd LibriSpeech
 	./flac_to_wav.sh
+
+	For Ubantu 18.xx:
+	mv flac_to_wav_u18.sh LibriSpeech
+	cd LibriSpeech
+	./flac_to_wav_u18.sh
 	```
 	- __Windows__: Download two files ([file 1](http://www.openslr.org/resources/12/dev-clean.tar.gz) and [file 2](http://www.openslr.org/resources/12/test-clean.tar.gz)) via browser and save in the `AIND-VUI-Capstone` directory.  Extract them with an application that is compatible with `tar` and `gz` such as [7-zip](http://www.7-zip.org/) or [WinZip](http://www.winzip.com/). Convert the files from your terminal window.
 	```
